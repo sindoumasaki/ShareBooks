@@ -1,24 +1,32 @@
-# README
+# ShareBooks
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+オススメの書籍をタイトルと要約で紹介するサイト。
 
-Things you may want to cover:
+### サイトテーマ
+コメントやいいねを通して、新しい書籍との出会いの手助けをする。
 
-* Ruby version
+### テーマを選んだ理由
+帰省時に幼馴染みにおすすめの書籍を教えられ、このおすすめをするという事を近しい人以外とも出来たらいいなと考えた為。
 
-* System dependencies
+### ターゲットユーザ
+本好きな方。
 
-* Configuration
+### 主な利用シーン
+実際に読んだ書籍でおすすめのものを見つけたり、読みたい書籍を見つけたい時に参考にしたりする際に利用して頂ければと思います。
 
-* Database creation
+## 設計書
 
-* Database initialization
 
-* How to run the test suite
+## チャレンジ要素一覧
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL,python
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+## 使用素材
+今後、更新予定。
