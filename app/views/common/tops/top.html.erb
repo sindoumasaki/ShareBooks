@@ -1,0 +1,7 @@
+<h1>Common::Tops#top</h1>
+<p>Find me in app/views/common/tops/top.html.erb</p>
+<%= link_to "ワンタッチログイン", users_guest_sign_in_path, method: :post %>
+
+<% if user_signed_in? %>
+  <%= link_to "ログアウト ", destroy_user_session_path, method: :delete %>
+<% end %>
