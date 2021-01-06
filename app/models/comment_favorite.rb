@@ -1,0 +1,2 @@
+class CommentFavorite < ApplicationRecord
+end
