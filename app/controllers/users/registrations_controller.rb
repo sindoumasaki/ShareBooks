@@ -3,7 +3,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def check_employer
     if resouce.email == 'employer@example.com'
-      redirect_to user_home_path
+      redirect_to user_homes_home_path
     end
   end
 end
