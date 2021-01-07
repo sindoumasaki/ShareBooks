@@ -29,8 +29,20 @@
   box-sizing: border-box;
 }
 
+.alert {
+  margin: 115px 0 0 0;
+}
+
+.navbar {
+  margin: 0;
+}
+
+.container {
+  background-color: #f3f3f3;
+}
+
 .nav-block {
-  background-color: #deb887;
+  background-color: #b77b57;
 }
 
 .head-block {
@@ -44,7 +56,8 @@
 }
 
 .body-1 {
-  padding-top: 135px;
+  padding-top: 115px;
+  background-color: #fde8d0;
 }
 
 .nav-block > .col-xs-4 {

@@ -21,8 +21,8 @@ Rails.application.routes.draw do
 
   # user======================================================
   namespace :user do
-    resources :books,     only: %i[index show new]
-    resources :favorites, only: %i[index]
+    resources :books
+    resources :favorites, only: %i[index create destroy]
     resources :searches,  only: %i[index]
     get 'users/show'
     get 'homes/home'

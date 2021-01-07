@@ -1,2 +1,15 @@
-<h1>User::Books#new</h1>
-<p>Find me in app/views/user/books/new.html.erb</p>
+<div class="container">
+  <%= form_with model: @book do |f| %>
+  <div class="col-xs-6">
+
+  </div>
+
+  <div class="col-xs-6">
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.submit %>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -13,8 +13,11 @@ class User < ApplicationRecord
   # バリデーション===================================================
   validates :nickname,    presence: true,   uniqueness: true,   length: { in: 1..15 }
   validates :email,       presence: true,   uniqueness: true
-
-  # ユーザージャンルのenum
+  
+  # 画像投稿のための記述=============================================
+  attachment :image
+  
+  # ユーザージャンルのenum===========================================
   enum user_genre: { 優良ユーザー: 0, 注意ユーザー: 1, 悪質ユーザー: 2}
 
   # ワンタッチログイン（毎回ゲスト作成）=============================
