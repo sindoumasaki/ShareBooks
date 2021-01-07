@@ -48,10 +48,9 @@ ActiveRecord::Schema.define(version: 2021_01_06_165832) do
   create_table "books", force: :cascade do |t|
     t.string "title", null: false
     t.text "digest", null: false
+    t.string "book_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "book_image_id"
-    t.string "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x00000000045f1668>"
   end
 
   create_table "comment_favorites", force: :cascade do |t|
@@ -78,6 +77,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_165832) do
     t.string "nickname", null: false
     t.boolean "user_status", default: false, null: false
     t.integer "user_genre", default: 0, null: false
+    t.string "user_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
