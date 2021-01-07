@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid nav-block">
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4 head-block">
+				<h1 class="head-text">ShareBooks</h1>
+			</div>
+		</div>
+		<div class="col-xs-4 col-xs-offset-4">
+			<ul class="nav navbar-nav navbar-right">
+				<!--userがログインしている場合-->
+				<% if user_signed_in? %>
+				  <li>
+						<%= link_to user_books_path do %>
+							<p class="list-text">書籍一覧</p>
+						<% end %>
+					</li>
+				  <li>
+						<%= link_to user_users_my_page_path do %>
+							<p class="list-text">マイページ</p>
+						<% end %>
+					</li>
+				  <li>
+						<%= link_to destroy_user_session_path, method: :delete do %>
+							<p class="list-text">ログアウト</p>
+						<% end %>
+					</li>
+				<!--管理者がログインしている場合	-->
+				<% elsif admin_signed_in? %>
+					<li>
+						<%= link_to admin_users_index_path do %>
+							<p class="list-text">ユーザー一覧</p>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to admin_genres_path do %>
+							<p class="list-text">ジャンル一覧・追加</p>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to destroy_admin_session_path, method: :delete do %>
+							<p class="list-text">ログアウト</p>
+						<% end %>
+					</li>
+				<!--ログアウト時の表示	-->
+				<% else %>
+					<li>
+						<%= link_to user_books_path do %>
+							<p class="list-text"></p>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to user_books_path do %>
+							<p class="list-text"></p>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to user_books_path do %>
+							<p class="list-text"></p>
+						<% end %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</nav>
