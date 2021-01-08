@@ -13,10 +13,23 @@ class User < ApplicationRecord
   # バリデーション===================================================
   validates :nickname,    presence: true,   uniqueness: true,   length: { in: 1..15 }
   validates :email,       presence: true,   uniqueness: true
-  
+
+  # フォロー・フォロワー機能=========================================
+  # フォロー側
+  has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
+  has_many :followings, through: :active_relationships, source: :follower
+  # フォロワー側
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
+  has_many :followers, through: :passive_relationships, source: :following
+  # フォローしているか否か
+  def followed_by?(user)
+    passive_relationships.find_by(following_id: user.id).present?
+  end
+
   # 画像投稿のための記述=============================================
-  attachment :image
-  
+  attachment :user_image
+  # accepts_attachments_for :book_images, attachment: :book_image
+
   # ユーザージャンルのenum===========================================
   enum user_genre: { 優良ユーザー: 0, 注意ユーザー: 1, 悪質ユーザー: 2}
 

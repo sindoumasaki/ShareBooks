@@ -13,9 +13,9 @@ class User::BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(book_params)
-    if book.save
-      redirect_to user_book_path(book.id), notice: '素敵な本をありがとう。'
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to user_book_path(@book), notice: '素敵な本をありがとう。'
     else
       render :new, alert: 'ごめんなさい、上手く投稿できなかったみたい。'
     end
@@ -45,6 +45,6 @@ class User::BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :digest, :image)
+    params.require(:book).permit(:title, :digest, :book_image)
   end
 end

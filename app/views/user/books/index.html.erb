@@ -1,2 +1,7 @@
-<h1>User::Books#index</h1>
-<p>Find me in app/views/user/books/index.html.erb</p>
+<div class="container">
+  <% @books.each do |book| %>
+  <div class="row">
+    <%= attachment_image_tag book, :book_image %>
+  </div>
+  <% end %>
+</div>
