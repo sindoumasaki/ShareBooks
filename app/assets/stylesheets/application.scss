@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@font-face {
+  font-family: 'Phenomena-Black';
+  src: font-url('/assets/Phenomena-Black.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.alert {
+  margin: 115px 0 0 0;
+}
+
+.navbar {
+  margin: 0;
+}
+
+.footer-box {
+  background-color: #eb9b6f;
+  height: 150px;
+}
+
+.footer-text {
+  text-align: center;
+  line-height: 150px;
+}
+
+.container {
+  background-color: #f3f3f3;
+}
+
+.nav-block {
+  background-color: #b77b57;
+}
+
+.head-block {
+  display: flex;
+  justify-content: center;
+}
+
+.head-text {
+  font-size: 35px;
+  font-family:  'Phenomena-Black';
+}
+
+.body-1 {
+  padding-top: 115px;
+  background-image: image-url("ShareBooks.jpg");
+  background-size: cover;
+}
+
+.nav-block > .col-xs-4 {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-right > li {
+  margin: 0 18px;
+}
+
+.navbar-right > li > a {
+  padding: 0;
+  color: black;
+}
+
+.list-text {
+  color: #2f4f4f;
+  padding: 8px;
+}

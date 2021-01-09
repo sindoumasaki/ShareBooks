@@ -1,2 +1,27 @@
-<h1>User::Books#index</h1>
-<p>Find me in app/views/user/books/index.html.erb</p>
+<div class="container book-index">
+  <div class="book-index-box-group">
+  <% @books.each do |book| %>
+    <div class="col-xs-6 box-back">
+      <div class="book-index-box">
+<!--タイトル-->
+        <div class="row">
+          <div class="book-index-title">
+            <%= link_to user_book_path(book.id), class: "title-text" do %>
+              <h3><%= book.title %></h3>
+            <% end %>
+          </div>
+        </div>
+<!--投稿した書籍の画像-->
+        <div class="row box-line">
+          <div class="book-index-image">
+            <%= link_to user_book_path(book.id), class: "title-text" do %>
+              <%= attachment_image_tag book, :book_image, size: "300x240" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="space"></div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

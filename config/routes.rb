@@ -20,15 +20,17 @@ Rails.application.routes.draw do
   end
 
   # user======================================================
+  resources :users,     only: %i[show] do
+    resource :relationships, only: %i[create destroy]
+    get 'users/follower', on: :member
+    get 'users/follows',  on: :member
+  end
   namespace :user do
-    resources :books,     only: %i[index show new]
-    resources :favorites, only: %i[index]
+    resources :books
+    resources :favorites, only: %i[index create destroy]
     resources :searches,  only: %i[index]
-    get 'users/show'
     get 'homes/home'
     get 'users/my_page'
-    get 'users/follower'
-    get 'users/follows'
   end
 
   # admin=====================================================

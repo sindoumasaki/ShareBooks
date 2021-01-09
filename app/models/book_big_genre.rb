@@ -4,5 +4,5 @@ class BookBigGenre < ApplicationRecord
   has_many :book_small_genres
 
   # バリデーション======================================================
-  varidates :big_genre_name,    presence: true,   uniqueness: true
+  validates :big_genre_name,    presence: true,   uniqueness: true
 end
