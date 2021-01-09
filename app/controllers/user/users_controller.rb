@@ -4,11 +4,11 @@ class User::UsersController < ApplicationController
   end
 
   def my_page
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
   end
 
   def follows
-    
+
   end
 
   def follower

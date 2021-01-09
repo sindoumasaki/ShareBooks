@@ -1,0 +1,28 @@
+<div class="container book-edit">
+  <div>
+  <!--子要素にブロック要素がないとform-groupは高さ０になるため不採用、子要素にブロック要素がなくても高さが出るrowを採用-->
+    <%= form_with model: @book, url: user_book_path(@book), local: true do |f| %>
+    <div class="col-xs-offset-1 col-xs-5 book-edit-left">
+      <div class="row">
+        <%= f.label :書籍画像, class: "col-xs-offset-3 col-xs-9" %>
+        <%= f.attachment_field :book_image, class: "col-xs-offset-3 col-xs-9" %>
+      </div>
+    </div>
+
+    <div class="col-xs-offset-1 col-xs-4 book-edit-right">
+      <div class="row">
+        <%= f.label :title, class: "col-xs-2 control-label" %>
+        <%= f.text_field :title, class: "col-xs-6 form-control", placeholder: "書籍のタイトル" %>
+      </div>
+      <div class="row">
+        <%= f.label :digest, class: "col-xs-2 control-label" %>
+        <%= f.text_field :digest, class: "col-xs-6 form-control", placeholder: "書籍のダイジェスト（要約）" %>
+      </div>
+      <div class="row">
+        <%= f.submit "投稿する", class: "col-xs-offset-9 col-xs-3" %>
+      </div>
+      <!--ジャンル指定欄は後で追加-->
+    </div>
+    <% end %>
+  </div>
+</div>

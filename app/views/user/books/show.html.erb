@@ -1,2 +1,35 @@
-<h1>User::Books#show</h1>
-<p>Find me in app/views/user/books/show.html.erb</p>
+<div class="container book-show">
+  <div>
+  <!--子要素にブロック要素がないとform-groupは高さ０になるため不採用、子要素にブロック要素がなくても高さが出るrowを採用-->
+    <div class="col-xs-offset-1 col-xs-5 book-show-left">
+      <div class="row">
+        <%= attachment_image_tag @book, :book_image, size: "500x400", class: "col-xs-offset-3 col-xs-9", fallback: "no_image.jpg"%>
+      </div>
+    </div>
+
+    <div class="col-xs-offset-1 col-xs-4 book-show-right">
+      <div class="row">
+        <div class="col-xs-2">
+          <h3>title</h3>
+        </div>
+        <div class="col-xs-6">
+          <%= @book.title %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <h3>digest</h3>
+        </div>
+        <div class="col-xs-6">
+          <%= @book.digest %>
+        </div>
+      </div>
+      <%= link_to "内容変更", edit_user_book_path(@book), class: "btn btn-primary" %>
+      <%= link_to "投稿削除", user_book_path(@book), class: "btn btn-danger", method: :delete, date:
+      { confirm: '本当に削除して良いですか?',
+        cancel: 'やめる',
+        commit: '削除する'}, title: '削除確認' %>
+      <!--ジャンル指定欄は後で追加-->
+    </div>
+  </div>
+</div>

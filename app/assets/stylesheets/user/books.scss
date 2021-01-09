@@ -13,3 +13,34 @@
 .book-new-right > .row {
   margin: 30px 0;
 }
+
+.book-index-box-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-index-box {
+  margin-top: 50px;
+  background-color: #dddcd6;
+}
+
+.box-back {
+}
+
+.box-line {
+  text-align: center;
+}
+
+.book-index-title {
+  width: 300px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.title-text {
+  color: black;
+}
+
+.space {
+  height: 50px;
+}

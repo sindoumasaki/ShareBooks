@@ -26,17 +26,17 @@ class User::BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
-    if book.update
-      redirect_to user_book_path(book.id), notice: '正しい情報をありがとう。'
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      redirect_to user_book_path(@book), notice: '更新ありがとう。'
     else
       render :edit, alert: 'ごめんなさい、上手く編集できなかったみたい。'
     end
   end
 
   def destroy
-    book = Book.find(params[:id])
-    if book.destroy
+    @book = Book.find(params[:id])
+    if @book.destroy
       redirect_to user_books_path, notice: 'もみ消しといたよ。'
     else
       render :show
