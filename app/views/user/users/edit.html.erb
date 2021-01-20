@@ -1,0 +1,82 @@
+<!--本登録のパターン-->
+<% if @user.user_status == 0 %>
+<div class="container">
+  <%= form_with model: @user, url: user_user_path, local: true do |f| %>
+  <!--ユーザー画像-->
+  <div class="row">
+    <div class="col-xs-offset-4 col-xs-4">
+      <%= f.attachment_field :user_image %>
+    </div>
+  </div>
+  <!--ニックネーム-->
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-2">
+      <h3 class="form-opinion">ニックネーム</h3>
+    </div>
+    <div class="col-xs-8">
+      <%= f.text_field :nickname, size: 30, maxlength: 15 %>
+    </div>
+  </div>
+  <!--メールアドレス-->
+  <!--<div class="row">-->
+  <!--  <div class="col-xs-offset-1 col-xs-2">-->
+  <!--    <h3 class="form-opinion">メールアドレス</h3>-->
+  <!--  </div>-->
+  <!--  <div class="col-xs-8">-->
+  <!--    <%#= f.email_field :email, size: 30 %>-->
+  <!--  </div>-->
+  <!--</div>-->
+  <!--自己紹介-->
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-2">
+      <h3 class="form-opinion">自己紹介</h3>
+    </div>
+    <div class="col-xs-8">
+      <%= f.text_area :user_introduction, size: "40x20" %>
+    </div>
+  </div>
+    <%= f.hidden_field :user_status, value: 1 %>
+    <%= f.submit "本登録" %>
+  <% end %>
+</div>
+<% else %>
+<!--ただの編集のパターン-->
+  <div class="container">
+    <%= form_with model: @user, url: user_user_path, local: true do |f| %>
+    <!--ユーザー画像-->
+    <div class="row">
+      <div class="col-xs-offset-4 col-xs-4">
+        <%= f.attachment_field :user_image %>
+      </div>
+    </div>
+    <!--ニックネーム-->
+    <div class="row">
+      <div class="col-xs-offset-1 col-xs-2">
+        <h3 class="form-opinion">ニックネーム</h3>
+      </div>
+      <div class="col-xs-8">
+        <%= f.text_field :nickname, size: 30, maxlength: 15 %>
+      </div>
+    </div>
+    <!--メールアドレス-->
+    <!--<div class="row">-->
+    <!--  <div class="col-xs-offset-1 col-xs-2">-->
+    <!--    <h3 class="form-opinion">メールアドレス</h3>-->
+    <!--  </div>-->
+    <!--  <div class="col-xs-8">-->
+    <!--    <%#= f.email_field :email, size: 30 %>-->
+    <!--  </div>-->
+    <!--</div>-->
+    <!--自己紹介-->
+    <div class="row">
+      <div class="col-xs-offset-1 col-xs-2">
+        <h3 class="form-opinion">自己紹介</h3>
+      </div>
+      <div class="col-xs-8">
+        <%= f.text_area :user_introduction, size: "40x20" %>
+      </div>
+    </div>
+      <%= f.submit "編集" %>
+    <% end %>
+  </div>
+<% end %>

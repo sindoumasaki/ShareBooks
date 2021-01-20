@@ -20,23 +20,33 @@ Rails.application.routes.draw do
   end
 
   # user======================================================
-  resources :users,     only: %i[show] do
-    resource :relationships, only: %i[create destroy]
-    get 'users/follower', on: :member
-    get 'users/follows',  on: :member
-  end
   namespace :user do
-    resources :books
-    resources :favorites, only: %i[index create destroy]
-    resources :searches,  only: %i[index]
+    resources :users,     only: %i[show edit update] do
+      resource :relationships, only: %i[create destroy]
+      member do
+      get 'follower',   as: 'follower'
+      get 'follows',    as: 'follows'
+      get 'my_page',    as: 'my_page'
+      end
+    end
+    resources :books do
+      resource  :book_favorites,      only: %i[create destroy]
+      resources :comments,            only: %i[create destroy] do
+        resource  :comment_favorites, only: %i[create destroy]
+      end
+    end
+    resources :favorites,   only: %i[index create destroy]
+    resources :searches,    only: %i[index]
     get 'homes/home'
-    get 'users/my_page'
   end
 
   # admin=====================================================
   namespace :admin do
-    resources :genres,    only: %i[index]
-    resources :searches,  only: %i[index]
+    resources :genres,          only: %i[index]
+    resources :big_genres,      only: %i[create destroy] do
+      resources :small_genres,  only: %i[create destroy]
+    end
+    resources :searches,        only: %i[index]
     get 'homes/home'
     get 'users/show'
     get 'users/index'

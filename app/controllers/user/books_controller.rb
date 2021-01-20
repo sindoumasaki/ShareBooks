@@ -10,12 +10,14 @@ class User::BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @comment = Comment.new
+    @comments = @book.comments
   end
 
   def create
     @book = Book.new(book_params)
+    @book.user_id = current_user.id
     if @book.save
-      redirect_to user_book_path(@book), notice: '素敵な本をありがとう。'
+      redirect_to user_book_url(@book), notice: '素敵な本をありがとう。'
     else
       render :new, alert: 'ごめんなさい、上手く投稿できなかったみたい。'
     end

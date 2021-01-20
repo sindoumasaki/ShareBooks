@@ -1,2 +1,20 @@
-<h1>Admin::Genres#index</h1>
-<p>Find me in app/views/admin/genres/index.html.erb</p>
+<div class="container">
+  <%= form_with model: @big_genre, url: admin_big_genres_path, local: true do |f| %>
+    <p>大まかなジャンル</p>
+    <%= f.text_field :big_genre_name %>
+    <%= f.submit %>
+  <% end %>
+
+  <% @big_genres.each do |big_genre| %>
+    <%= big_genre.big_genre_name %>
+    <%= form_with model: [big_genre, @small_genre], url: admin_big_genre_small_genres_path(big_genre), local: true do |form| %>
+      <p>細かいジャンル</p>
+      <%= form.text_field :small_genre_name %>
+      <%= form.submit %>
+    <% end %>
+  <% end %>
+  
+  <% @small_genres.each do |small_genre| %>
+    <%= small_genre.small_genre_name %>
+  <% end %>  
+</div>

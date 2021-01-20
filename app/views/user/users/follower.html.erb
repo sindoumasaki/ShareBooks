@@ -1,2 +1,26 @@
-<h1>User::Users#follower</h1>
-<p>Find me in app/views/user/users/follower.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-10">
+      <table class="table table-bordered center-block">
+        <tr>
+          <th></th>
+          <th>ニックネーム</th>
+          <th></th>
+        </tr>
+        <%= @users.each do |user| %>
+        <tr>
+          <td>
+            <%= attachment_image_tag user, :user_image %>
+          </td>
+          <td>
+            <%= user.nickname %>
+          </td>
+          <td>
+            <%= render "layouts/follow_form" %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

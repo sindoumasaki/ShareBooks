@@ -1,2 +1,16 @@
-<h1>User::Users#my_page</h1>
-<p>Find me in app/views/user/users/my_page.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1">
+      <%= attachment_image_tag @users, :user_image %>
+    </div>
+    <div class="col-xs-offset-1">
+      <%= @user.nickname %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= link_to "フォロー", follows_user_user_path, class: "btn btn-primary" %>
+    <%= link_to "フォロワー", follower_user_user_path, class: "btn btn-primary" %>
+  </div>
+  <%= link_to "編集", edit_user_user_path, class: "btn btn-primary" %>
+</div>

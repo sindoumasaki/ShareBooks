@@ -1,10 +1,42 @@
-<h1>Common::Tops#top</h1>
-<p>Find me in app/views/common/tops/top.html.erb</p>
-<%= link_to "ワンタッチログイン", users_guest_sign_in_path, method: :post %>
-<%= link_to "ゲストログイン（閲覧用）", users_employer_sign_in_path, method: :post %>
+<div class="container-fluid">
+  <!--メインビジュアル-->
+  <div class="row mv-box">
+    <div class="mv-text-box">
+      <h4 class="mv-text">
+        考え中です。。。考え中です。。。
+        考え中です。。。考え中です。。。
+      </h4>
+    </div>
+  </div>
+  <!--ログインボタン-->
+  <div class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+      <%= link_to users_guest_sign_in_path, method: :post do %>
+        <h2 class="login-text btn btn-info btn-block">
+          さっそくはじめる</br>
+          （仮登録）
+        </h2>
+      <% end %>
 
-<% if user_signed_in? %>
-  <%= link_to "ログアウト ", destroy_user_session_path, method: :delete %>
-<% end %>
+      <%= link_to users_employer_sign_in_path, method: :post do %>
+        <h2 class="login-text btn btn-info btn-block">
+          ゲストログイン</br>
+          （閲覧用）
+        </h2>
+      <% end %>
+    </div>
+  </div>
 
-<h1>k</h1>
+  <div class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+    </div>
+  </div>
+  <!--投稿いいね上位top3-->
+  <div class="row">
+    <% @book_top3.each do |book| %>
+    <div class="fvorites-top3-box">
+      <%= book.title %>
+    </div>
+    <% end %>
+  </div>
+</div>

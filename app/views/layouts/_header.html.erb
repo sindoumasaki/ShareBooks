@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default">
 	<div class="container-fluid nav-block">
 		<div class="row">
 			<div class="col-xs-4 col-xs-offset-4 head-block">
@@ -15,7 +15,7 @@
 						<% end %>
 					</li>
 				  <li>
-						<%= link_to user_users_my_page_path do %>
+						<%= link_to my_page_user_user_path(current_user.id) do %>
 							<p class="list-text">マイページ</p>
 						<% end %>
 					</li>

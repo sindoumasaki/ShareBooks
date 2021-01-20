@@ -31,5 +31,13 @@
         commit: '削除する'}, title: '削除確認' %>
       <!--ジャンル指定欄は後で追加-->
     </div>
+    <%= render "layouts/comment_form", book: @book, comment: @comment %>
+    <%= render "layouts/book_favorite", book: @book %>
+    <% @comments.each do |c| %>
+      <p>
+        <%= c.comment %>
+      </p>
+      <%= render "layouts/comment_favorite", comment: c, book: @book %>
+    <% end %>
   </div>
 </div>

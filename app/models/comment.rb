@@ -6,4 +6,9 @@ class Comment < ApplicationRecord
 
   # バリデーション =============================================
   validates :comment,   presence: true
+
+  # 引数のuserがいいねしているかどうか確認するメソッド==========
+  def comment_favorited_by?(user)
+    comment_favorites.where(user_id: user.id).exists?
+  end
 end

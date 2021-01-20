@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2021_01_08_065806) do
 
   create_table "book_big_genres", force: :cascade do |t|
     t.string "big_genre_name", null: false
-    t.integer "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_01_08_065806) do
     t.string "title", null: false
     t.text "digest", null: false
     t.text "book_image_id"
+    t.integer "user_id", null: false
+    t.integer "book_big_genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,8 +70,8 @@ ActiveRecord::Schema.define(version: 2021_01_08_065806) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "following_id"
-    t.integer "follower_id"
+    t.integer "following_id", null: false
+    t.integer "follower_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,8 +82,9 @@ ActiveRecord::Schema.define(version: 2021_01_08_065806) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "nickname", null: false
-    t.boolean "user_status", default: false, null: false
+    t.string "nickname", default: "", null: false
+    t.text "user_introduction", default: "", null: false
+    t.integer "user_status", default: 0, null: false
     t.integer "user_genre", default: 0, null: false
     t.string "user_image_id"
     t.datetime "created_at", null: false

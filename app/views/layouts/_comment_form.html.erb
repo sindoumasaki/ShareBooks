@@ -1,0 +1,5 @@
+<%= form_with(model: [book, comment], url: user_book_comments_path(book), local: true) do |f| %>
+  <%= f.label :コメント %>
+  <%= f.text_area :comment %>
+  <%= f.submit %>
+<% end %>
