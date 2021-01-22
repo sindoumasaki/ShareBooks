@@ -61,6 +61,7 @@
 }
 
 .head-text {
+  color: black;
   font-size: 35px;
   font-family:  'Phenomena-Black';
 }
@@ -88,4 +89,9 @@
 .list-text {
   color: #2f4f4f;
   padding: 8px;
+}
+
+// 各ページ用のcss
+.box {
+  margin-top: 20px;
 }

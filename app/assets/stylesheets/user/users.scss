@@ -1,3 +1,47 @@
 // Place all the styles related to the user::users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// マイページ=================================================
+// マイページ(左側)-----
+.mypage-user-image {
+  margin-top: 20px;
+  text-align: center;
+}
+.mypage-left-link {
+  text-align: center;
+}
+
+//マイページ(右側)-----
+.mypage-right-line {
+  margin-top: 10px;
+}
+
+// user書籍投稿一覧（下側）=========================
+.user-book-box-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+.user-book-box {
+  margin-top: 50px;
+  background-color: #dddcd6;
+}
+.user-book-title {
+  width: 300px;
+  height: 30px;
+  margin: 0 auto;
+}
+.title-text {
+  color: black;
+}
+.box-line {
+  text-align: center;
+}
+.space {
+  height: 50px;
+}
+
+// user-show
+.follow-link {
+  text-align: center;
+}

@@ -1,0 +1,15 @@
+<% if user_signed_in? && user != current_user %>
+<div class="follow_link">
+  <% if current_user.following?(user) %>
+    <%= link_to user_user_relationships_path(user) do %>
+      <i class="fas fa-user-minus"></i>
+      <p>このユーザーをフォロー解除</p>
+    <% end %>
+  <% else %>
+    <%= link_to user_user_relationships_path(user) do %>
+      <i class="fas fa-user-plus"></i>
+      <p>このユーザーをフォローする</p>
+    <% end %>
+  <% end %>
+</div>
+<% end %>

@@ -16,12 +16,18 @@
       </div>
       <div class="row">
         <%= f.label :digest, class: "col-xs-2 control-label" %>
-        <%= f.text_field :digest, class: "col-xs-6 form-control", placeholder: "書籍のダイジェスト（要約）" %>
+        <%= f.text_area :digest, class: "col-xs-6 form-control", size: "20x5s", placeholder: "書籍のダイジェスト（要約）" %>
       </div>
+      <div class="row">
+        <%= f.label :ジャンル, class: "col-xs-4 control-label" %>
+        <div class="col-xs-6">
+          <%= f.collection_select(:book_big_genre_id, @big_genres, :id, :big_genre_name) %>
+        </div>
+      </div>
+      <!--細かいジャンルは非同期化後に追加-->
       <div class="row">
         <%= f.submit "投稿する", class: "col-xs-offset-9 col-xs-3" %>
       </div>
-      <!--ジャンル指定欄は後で追加-->
     </div>
     <% end %>
   </div>

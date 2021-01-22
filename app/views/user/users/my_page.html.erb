@@ -1,16 +1,91 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-offset-1">
-      <%= attachment_image_tag @users, :user_image %>
+  <div class="row box">
+    <!--左側-->
+    <div class="col-xs-offset-1 col-xs-5 mypage-left-box">
+      <div class="row mypage-user-image">
+        <div class="col-xs-offset-1">
+          <%= attachment_image_tag @users, :user_image, size:"250x250" , fallback: "noimage-user.jpg" %>
+        </div>
+      </div>
+      <div class="row mypage-left-link">
+        <div class="col-xs-offset-3 col-xs-3">
+          <%= link_to follows_user_user_path do %>
+            <i class="fas fa-user-friends"></i>
+            <p>フォロー</p>
+          <% end %>
+        </div>
+        <div class="col-xs-offset-1 col-xs-3">
+          <%= link_to follower_user_user_path do %>
+            <i class="fas fa-user-friends"></i>
+            <p>フォロワー</p>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="col-xs-offset-1">
-      <%= @user.nickname %>
+
+    <!--右側-->
+    <div class="col-xs-offset-1 col-xs-5 mypage-right-box">
+      <div class="row mypage-right-line">
+        <h5>ニックネーム</h5>
+      </div>
+      <div class="row form-control mypage-right-line">
+        <%= @user.nickname %>
+      </div>
+      <div class="row mypage-right-line">
+        <h5>自己紹介</h5>
+      </div>
+      <div class="row form-control mypage-right-line">
+        <%= @user.user_introduction %>
+      </div>
+      <div class="row mypage-right-line">
+        <h5>ステータス</h5>
+      </div>
+      <div class="row form-control mypage-right-line">
+        <%= @user.user_status %>
+      </div>
+      <% if @user.user_status == 'ゲストユーザー' %>
+      <div class="row mypage-right-line">
+        <div class="col-xs-offset-9 col-xs-3">
+          <%= link_to "本登録へ", edit_user_user_path, class: "btn btn-success" %>
+        </div>
+      </div>
+      <% elsif @user.user_status == '本登録済みユーザー' %>
+      <div class="row mypage-right-line">
+        <div class="col-xs-offset-9 col-xs-3">
+          <%= link_to "編集", edit_user_user_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 
+    <!--投稿書籍-->
   <div class="row">
-    <%= link_to "フォロー", follows_user_user_path, class: "btn btn-primary" %>
-    <%= link_to "フォロワー", follower_user_user_path, class: "btn btn-primary" %>
+    <div class="user-book-box-group">
+      <% @books.each do |book| %>
+      <div class="col-xs-4 box-back">
+        <div class="user-book-box">
+  <!--タイトル-->
+          <div class="row">
+            <div class="user-book-title">
+              <%= link_to user_book_path(book.id), class: "title-text" do %>
+                <h3><%= book.title %></h3>
+              <% end %>
+            </div>
+          </div>
+  <!--投稿した書籍の画像-->
+          <div class="row box-line">
+            <div class="mypage-book-image">
+              <%= link_to user_book_path(book.id), class: "title-text" do %>
+                <%= attachment_image_tag book, :book_image, size: "300x240" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <% end %>
+  <!--<%#= paginate @books %>-->
+    </div>
   </div>
-  <%= link_to "編集", edit_user_user_path, class: "btn btn-primary" %>
 </div>

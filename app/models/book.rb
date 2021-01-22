@@ -16,8 +16,12 @@ class Book < ApplicationRecord
   def book_favorited_by?(user)
     book_favorites.where(user_id: user.id).exists?
   end
-  
+
   def self.book_top3
     Book.find(BookFavorite.joins(:book).group(:book_id).order('count(book_id) DESC').limit(3).pluck(:book_id))
-  end  
+  end
+
+  def self.book_top10
+    Book.find(BookFavorite.joins(:book).group(:book_id).order('count(book_id) DESC').limit(10).pluck(:book_id))
+  end
 end
