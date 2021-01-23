@@ -55,8 +55,12 @@
     <div class="col-xs-offset-2 col-xs-8">
       <% @comments.each do |c| %>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 comment">
           <p><%= c.comment %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 comment-favorite-btn">
           <%= render "layouts/comment_favorite", comment: c, book: @book %>
         </div>
       </div>
