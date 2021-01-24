@@ -2,60 +2,94 @@
 	<div class="container-fluid nav-block">
 		<div class="row">
 			<div class="col-xs-4 col-xs-offset-4 head-block">
-				<h1 class="head-text">ShareBooks</h1>
+				<%= link_to root_path do %>
+					<h1 class="head-text">ShareBooks</h1>
+				<% end %>
 			</div>
 		</div>
-		<div class="col-xs-4 col-xs-offset-4">
+		<div class="col-xs-12">
 			<ul class="nav navbar-nav navbar-right">
-				<!--userがログインしている場合-->
-				<% if user_signed_in? %>
+				<!--ゲストユーザーがログインしている場合-------------------------->
+				<% if user_signed_in? && current_user.user_status == "ゲストユーザー" %>
+				  <li>
+						<%= link_to new_user_book_path do %>
+							<p class="list-text fas fa-book-medical">書籍投稿</p>
+						<% end %>
+					</li>
 				  <li>
 						<%= link_to user_books_path do %>
-							<p class="list-text">書籍一覧</p>
+							<p class="list-text fas fa-book-open">書籍一覧</p>
 						<% end %>
 					</li>
 				  <li>
 						<%= link_to my_page_user_user_path(current_user.id) do %>
-							<p class="list-text">マイページ</p>
+							<p class="list-text fas fa-user">マイページ</p>
+						<% end %>
+					</li>
+				  <li>
+						<%= link_to edit_user_user_path(current_user.id) do %>
+							<p class="list-text fas fa-users-cog">ユーザー本登録</p>
 						<% end %>
 					</li>
 				  <li>
 						<%= link_to destroy_user_session_path, method: :delete do %>
-							<p class="list-text">ログアウト</p>
+							<p class="list-text fas fa-sign-out-alt">ログアウト</p>
 						<% end %>
 					</li>
-				<!--管理者がログインしている場合	-->
+					<!--本登録済みユーザーがログインしている場合------------------->
+				<% elsif user_signed_in? && current_user.user_status == "本登録済みユーザー" %>
+				  <li>
+						<%= link_to new_user_book_path do %>
+							<p class="list-text fas fa-book-medical">書籍投稿</p>
+						<% end %>
+					</li>
+				  <li>
+						<%= link_to user_books_path do %>
+							<p class="list-text fas fa-book-open">書籍一覧</p>
+						<% end %>
+					</li>
+				  <li>
+						<%= link_to my_page_user_user_path(current_user.id) do %>
+							<p class="list-text fas fa-user">マイページ</p>
+						<% end %>
+					</li>
+				  <li>
+						<%= link_to destroy_user_session_path, method: :delete do %>
+							<p class="list-text fas fa-sign-out-alt">ログアウト</p>
+						<% end %>
+					</li>
+				<!--管理者がログインしている場合	-------------------------->
 				<% elsif admin_signed_in? %>
 					<li>
 						<%= link_to admin_users_index_path do %>
-							<p class="list-text">ユーザー一覧</p>
+							<p class="list-text fas fa-users">ユーザー一覧</p>
 						<% end %>
 					</li>
 					<li>
 						<%= link_to admin_genres_path do %>
-							<p class="list-text">ジャンル一覧・追加</p>
+							<p class="list-text fas fa-swatchbook">ジャンル一覧・追加</p>
 						<% end %>
 					</li>
 					<li>
 						<%= link_to destroy_admin_session_path, method: :delete do %>
-							<p class="list-text">ログアウト</p>
+							<p class="list-text fas fa-sign-out-alt">ログアウト</p>
 						<% end %>
 					</li>
-				<!--ログアウト時の表示	-->
+				<!--ログアウト時の表示------------------------------------------>
 				<% else %>
 					<li>
 						<%= link_to user_books_path do %>
-							<p class="list-text">書籍一覧</p>
+							<p class="list-text fas fa-book-open">書籍一覧</p>
 						<% end %>
 					</li>
 					<li>
-						<%= link_to new_user_registration_path do %>
-							<p class="list-text">新規登録</p>
+						<%= link_to new_admin_registration_path do %>
+							<p class="list-text fas fa-users-cog">ユーザー本登録</p>
 						<% end %>
 					</li>
 					<li>
 						<%= link_to new_user_session_path do %>
-							<p class="list-text">ログイン</p>
+							<p class="list-text fas fa-sign-in-alt">ログイン</p>
 						<% end %>
 					</li>
 				<% end %>

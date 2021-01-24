@@ -1,2 +1,30 @@
-<h1>User::Users#follows</h1>
-<p>Find me in app/views/user/users/follows.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1">
+      <h3>フォロワー</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-10">
+      <table class="table table-bordered center-block">
+        <%= @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user_user_path(user.id) do %>
+              <%= attachment_image_tag user, :user_image, size: "30x30" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to user_user_path(user.id) do %>
+              <%= user.nickname %>
+            <% end %>
+          </td>
+          <td>
+            <%= render "layouts/follow_link", user: user %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

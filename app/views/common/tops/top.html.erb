@@ -1,14 +1,16 @@
-<div class="container-fluid">
-  <!--メインビジュアル-->
-  <div class="row mv-box">
-    <div class="mv-text-box">
-      <h4 class="mv-text">
-        考え中です。。。考え中です。。。
-        考え中です。。。考え中です。。。
-      </h4>
+<div class="container">
+  <div class="container-fluid">
+    <!--メインビジュアル-->
+    <div class="row mv-box">
+      <div class="mv-text-box">
+        <h4 class="mv-text">
+          あなたのオススメの本を紹介・発見する</br>
+          手助けになるサイトです。
+      </div>
     </div>
   </div>
   <!--ログインボタン-->
+  <% unless user_signed_in? %>
   <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
       <%= link_to users_guest_sign_in_path, method: :post do %>
@@ -26,6 +28,7 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 
   <div class="row">
     <div class="col-xs-offset-3 col-xs-6">

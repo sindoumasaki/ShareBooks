@@ -1,10 +1,11 @@
 class User::BooksController < ApplicationController
   def new
     @book = Book.new
+    @big_genres = BookBigGenre.all
   end
 
   def index
-    @books = Book.all
+    @books = Book.page(params[:page]).per(10)
   end
 
   def show
@@ -47,6 +48,6 @@ class User::BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :digest, :book_image)
+    params.require(:book).permit(:title, :digest, :book_image, :book_big_genre_id)
   end
 end

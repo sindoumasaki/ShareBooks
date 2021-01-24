@@ -1,5 +1,12 @@
-<%= form_with(model: [book, comment], url: user_book_comments_path(book), local: true) do |f| %>
-  <%= f.label :コメント %>
-  <%= f.text_area :comment %>
-  <%= f.submit %>
+<%= form_with(model: [book, comment], url: user_book_comments_path(book), class: "comment-form", remote: true) do |f| %>
+<div class="row right-line">
+  <div class="col-xs-offset-1">
+    <%= f.text_area :comment, class: "form-control", size: "40x3"%>
+  </div>
+</div>
+<div class="row right-line">
+  <div class="col-xs-offset-9 col-xs-2">
+    <%= f.submit "コメントする" %>
+  </div>
+</div>
 <% end %>
