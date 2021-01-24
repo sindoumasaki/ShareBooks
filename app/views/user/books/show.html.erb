@@ -6,15 +6,28 @@
         <%= attachment_image_tag @book, :book_image, size: "400x300", class: "col-xs-offset-3 col-xs-9", fallback: "no_image.jpg"%>
       </div>
       <div class="row">
-        <div class="col-xs-offset-3">
-          <%= link_to user_user_path(@book.user.id) do %>
-            <h5><%= @book.user.nickname %>さんの投稿</h5>
-          <% end %>
-        </div>
+        <% if @book.user.id == current_user.id %>
+          <div class="col-xs-offset-3">
+            <%= link_to "内容変更", edit_user_book_path(@book), class: "btn btn-primary" %>
+            <%= link_to "投稿削除", user_book_path(@book), class: "btn btn-danger", method: :delete, date:
+            { confirm: '本当に削除して良いですか?',
+              cancel: 'やめる',
+              commit: '削除する'}, title: '削除確認' %>
+          </div>
+        <% else %>
+          <div class="col-xs-offset-3 col-xs-6">
+            <%= link_to user_user_path(@book.user.id) do %>
+              <h5><%= @book.user.nickname %>さんの投稿</h5>
+            <% end %>
+          </div>
+          <div class="col-xs-1 book-favorite">
+            <%= render "layouts/book_favorite", book: @book %>
+          </div>
+        <% end %>
       </div>
     </div>
 
-    <div class="col-xs-offset-1 col-xs-4 book-show-right">
+    <div class="col-xs-4 book-show-right">
       <div class="row right-line">
         <div class="col-xs-2">
           <h4>title</h4>
@@ -42,29 +55,11 @@
       <div class="row">
         <%= render "layouts/comment_form", book: @book, comment: @comment %>
       </div>
-      <div class="row">
-        <%= link_to "内容変更", edit_user_book_path(@book), class: "btn btn-primary" %>
-        <%= link_to "投稿削除", user_book_path(@book), class: "btn btn-danger", method: :delete, date:
-        { confirm: '本当に削除して良いですか?',
-          cancel: 'やめる',
-          commit: '削除する'}, title: '削除確認' %>
-      </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-offset-2 col-xs-8">
-      <% @comments.each do |c| %>
-      <div class="row">
-        <div class="col-xs-12 comment">
-          <p><%= c.comment %></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 comment-favorite-btn">
-          <%= render "layouts/comment_favorite", comment: c, book: @book %>
-        </div>
-      </div>
-      <% end %>
+    <div class="col-xs-offset-2 col-xs-8 comments">
+      <%= render "layouts/comments", comments: @comments, book: @book %>
     </div>
   </div>
 </div>

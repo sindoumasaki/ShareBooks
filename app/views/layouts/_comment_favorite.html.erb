@@ -1,9 +1,9 @@
 <% if comment.comment_favorited_by?(current_user) %>
-  <%= link_to user_book_comment_comment_favorites_path(book.id, comment.id), method: :delete do %>
+  <%= link_to user_book_comment_comment_favorites_path(book.id, comment.id), method: :delete, remote: true do %>
     <i class="fas fa-heart"></i><%= comment.comment_favorites.count %>
   <% end %>
 <% else %>
-  <%= link_to user_book_comment_comment_favorites_path(book.id, comment.id), method: :post do %>
+  <%= link_to user_book_comment_comment_favorites_path(book.id, comment.id), method: :post, remote: true do %>
     <i class="far fa-heart"></i><%= comment.comment_favorites.count %>
   <% end %>
 <% end %>

@@ -1,0 +1,13 @@
+<table class="table">
+  <% comments.each do |c| %>
+  <tr>
+    <td class="col-xs-11">
+      <%= c.comment %>
+    </td>
+    <td class="col-xs-1" id="comment-favorite-<%= c.id %>">
+      <%= render "layouts/comment_favorite", comment: c, book: @book %>
+    </td>
+  </tr>
+  <% end %>
+  <%#= paginate @comments %>
+</table>
