@@ -1,4 +1,5 @@
 class User::UsersController < ApplicationController
+  before_action :redirect_top, only: [:show, :my_page, :follows, :follower, :edit, :update]
   def show
     @user = User.find(params[:id])
     @books = @user.books

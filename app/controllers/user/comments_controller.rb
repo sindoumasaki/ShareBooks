@@ -5,14 +5,12 @@ class User::CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.save
     @comments = Comment.all
-    # redirect_to user_book_url(book)
   end
 
   def destroy
     @comments = Comment.all
     @comment = Comment.find(params[:id])
     @comment.destroy
-    # redirect_to user_books_url
   end
 
   private

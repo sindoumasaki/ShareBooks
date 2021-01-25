@@ -22,3 +22,29 @@
   // line-height: 200px;
   // color: ;
 }
+// top3
+.top3-head {
+  text-align: center;
+}
+.top3-book-box-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+.top3-book-box {
+  background-color: #dddcd6;
+}
+.top3-book-title {
+  width: 300px;
+  height: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+.title-text {
+  color: black;
+}
+.box-line {
+  text-align: center;
+}
+.space {
+  height: 50px;
+}

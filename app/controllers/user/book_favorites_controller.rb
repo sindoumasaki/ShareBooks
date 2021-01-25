@@ -2,6 +2,7 @@ class User::BookFavoritesController < ApplicationController
   def create
     user = current_user
     @book = Book.find(params[:book_id])
+    @book_top10 = Book.book_top10
     favorite = BookFavorite.create(user_id: user.id, book_id: @book.id)
   end
 

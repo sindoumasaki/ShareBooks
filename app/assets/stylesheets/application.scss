@@ -29,9 +29,9 @@
   box-sizing: border-box;
 }
 
-// .alert {
-//   margin: 115px 0 0 0;
-// }
+.alert {
+  margin-bottom: 0;
+}
 
 .navbar {
   margin: 0;
@@ -94,4 +94,12 @@
 // 各ページ用のcss
 .box {
   margin-top: 20px;
+}
+// ログインページ
+.login-line {
+  padding: 15px 0;
+}
+// サインアップページ
+.signup-line {
+  padding: 15px 0;
 }

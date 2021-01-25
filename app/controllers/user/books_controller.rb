@@ -1,7 +1,8 @@
 class User::BooksController < ApplicationController
+  before_action :redirect_top, only: [:new, :show, :create, :edit, :update, :destroy]
+
   def new
     @book = Book.new
-    @big_genres = BookBigGenre.all
   end
 
   def index
@@ -20,7 +21,7 @@ class User::BooksController < ApplicationController
     if @book.save
       redirect_to user_book_url(@book), notice: '素敵な本をありがとう。'
     else
-      render :new, alert: 'ごめんなさい、上手く投稿できなかったみたい。'
+      redirect_to new_user_book_url, alert: 'ごめんなさい、上手く投稿できなかったみたい。'
     end
   end
 

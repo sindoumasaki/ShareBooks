@@ -6,7 +6,7 @@
         <%= attachment_image_tag @book, :book_image, size: "400x300", class: "col-xs-offset-3 col-xs-9", fallback: "no_image.jpg"%>
       </div>
       <div class="row">
-        <% if @book.user.id == current_user.id %>
+        <% if @book.user_id == current_user.id %>
           <div class="col-xs-offset-3">
             <%= link_to "内容変更", edit_user_book_path(@book), class: "btn btn-primary" %>
             <%= link_to "投稿削除", user_book_path(@book), class: "btn btn-danger", method: :delete, date:
@@ -20,7 +20,7 @@
               <h5><%= @book.user.nickname %>さんの投稿</h5>
             <% end %>
           </div>
-          <div class="col-xs-1 book-favorite">
+          <div class="col-xs-2" id="book-favorite-<%= @book.id %>">
             <%= render "layouts/book_favorite", book: @book %>
           </div>
         <% end %>

@@ -6,20 +6,22 @@
   </div>
   <div class="row">
     <div class="col-xs-offset-1 col-xs-10">
-      <table class="table table-bordered center-block">
-        <%= @users.each do |user| %>
+      <table class="table">
+        <% @users.each do |user| %>
         <tr>
-          <td>
+          <td class="col-xs-3">
             <%= link_to user_user_path(user.id) do %>
-              <%= attachment_image_tag user, :user_image, size: "30x30" %>
+              <%= attachment_image_tag user, :user_image, size: "30x30", fallback: "noimage-user.jpg" %>
             <% end %>
           </td>
-          <td>
+          <td class="col-xs-6">
             <%= link_to user_user_path(user.id) do %>
-              <%= user.nickname %>
+              <p class="friend-nickname">
+                <%= user.nickname %>
+              </p>
             <% end %>
           </td>
-          <td>
+          <td class="col-xs-">
             <%= render "layouts/follow_link", user: user %>
           </td>
         </tr>

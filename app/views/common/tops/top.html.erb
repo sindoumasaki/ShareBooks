@@ -30,16 +30,49 @@
   </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
-    </div>
-  </div>
   <!--投稿いいね上位top3-->
   <div class="row">
-    <% @book_top3.each do |book| %>
-    <div class="fvorites-top3-box">
-      <%= book.title %>
+    <div class="col-xs-offset-4 col-xs-4 top3-head">
+      <h3 class="bg-success"><いいねランキングtop3></h3>
     </div>
-    <% end %>
+  </div>
+  <div class="row">
+    <div class="top3-book-box-group">
+      <% @book_top3.each do |book| %>
+      <div class="col-xs-4 box-back">
+        <div class="top3-book-box">
+  <!--タイトル-->
+          <div class="row box-line">
+            <div class="top3-book-title">
+              <%= link_to user_book_path(book.id), class: "title-text" do %>
+                <h3><%= book.title %></h3>
+              <% end %>
+            </div>
+          </div>
+  <!--投稿した書籍の画像-->
+          <div class="row box-line">
+            <div class="top-book-image">
+              <%= link_to user_book_path(book.id), class: "title-text" do %>
+                <%= attachment_image_tag book, :book_image, size: "300x240" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="row box-line">
+            <div class="col-xs-offset-1 col-xs-2 book-favorite">
+              <%= link_to user_book_path(book.id), class: "title-text" do %>
+                <p class="far fa-heart"><%= book.book_favorites.count %></p>
+              <% end %>
+            </div>
+            <div class="col-xs-8 top-book-created">
+              <%= link_to user_book_path(book.id), class: "title-text" do %>
+                <p><%= l book.created_at %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  <!--<%#= paginate @books %>-->
+    </div>
   </div>
 </div>

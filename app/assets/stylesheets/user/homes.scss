@@ -1,3 +1,28 @@
 // Place all the styles related to the user::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.top10-head {
+  text-align: center;
+}
+.top10-book-box-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+.top10-book-box {
+  background-color: #dddcd6;
+}
+.top10-book-title {
+  width: 300px;
+  height: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+.title-text {
+  color: black;
+}
+.box-line {
+  text-align: center;
+}
+.box-line {
+  margin-top: 10px;
+}

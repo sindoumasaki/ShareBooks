@@ -1,1 +1,2 @@
-$(".book-favorite").html("<%= j(render('layouts/book_favorite', book: @book)) %>");
+<!--$("#book-favorite-<%#= @book.id %>").html("<%#= j(render('layouts/book_favorite', book: @book)) %>");-->
+$("#book-favorite-<%= top10.id %>").html("<%= j(render('layouts/book_favorite', book: @book_top10)) %>");

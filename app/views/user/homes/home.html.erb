@@ -1,27 +1,43 @@
 <div class="container">
-  <div class="book-index-box-group">
-  <% @book_top10.each do |top10| %>
-    <div class="col-xs-6 box-back">
-      <div class="book-index-box">
-<!--タイトル-->
-        <div class="row">
-          <div class="book-index-title">
-            <%= link_to user_book_path(top10.id), class: "title-text" do %>
-              <h3><%= top10.title %></h3>
-            <% end %>
-          </div>
-        </div>
-<!--投稿した書籍の画像-->
-        <div class="row box-line">
-          <div class="book-index-image">
-            <%= link_to user_book_path(top10.id), class: "title-text" do %>
-              <%= attachment_image_tag top10, :book_image, size: "300x240" %>
-            <% end %>
-          </div>
-        </div>
-        <div class="space"></div>
-      </div>
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-4 top10-head">
+      <h3 class="bg-success">いいねランキングtop10</h3>
     </div>
-  <% end %>
+  </div>
+  <div class="row">
+    <div class="top10-book-box-group">
+    <% @book_top10.each do |top10| %>
+      <div class="col-xs-6 box-back">
+        <div class="top10-book-box">
+  <!--タイトル-->
+          <div class="row box-line">
+            <div class="top10-book-title">
+              <%= link_to user_book_path(top10.id), class: "title-text" do %>
+                <h3><%= top10.title %></h3>
+              <% end %>
+            </div>
+          </div>
+  <!--投稿した書籍の画像-->
+          <div class="row box-line">
+            <div class="book-index-image">
+              <%= link_to user_book_path(top10.id), class: "title-text" do %>
+                <%= attachment_image_tag top10, :book_image, size: "300x240" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="row box-line">
+            <div class="col-xs-offset-2 col-xs-2 book-favorite-<%= top10.id %>">
+              <%= render "layouts/book_favorite", book: top10 %>
+            </div>
+            <div class="col-xs-7 top10-book-created">
+              <%= link_to user_book_path(top10.id), class: "title-text" do %>
+                <p><%= l top10.created_at %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
   </div>
 </div>

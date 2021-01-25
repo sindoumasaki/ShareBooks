@@ -73,3 +73,5 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 # ページネイション
 gem 'kaminari'
+# 多言語
+gem 'i18n_generators'

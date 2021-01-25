@@ -12,7 +12,7 @@
     <div class="col-xs-offset-1 col-xs-4 book-new-right">
       <div class="row">
         <%= f.label :title, class: "col-xs-2 control-label" %>
-        <%= f.text_field :title, class: "col-xs-6 form-control", placeholder: "書籍のタイトル" %>
+        <%= f.text_field :title, class: "col-xs-6 form-control", autofocus: true, placeholder: "書籍のタイトル" %>
       </div>
       <div class="row">
         <%= f.label :digest, class: "col-xs-2 control-label" %>
@@ -21,7 +21,7 @@
       <div class="row">
         <%= f.label :ジャンル, class: "col-xs-4 control-label" %>
         <div class="col-xs-6">
-          <%= f.collection_select(:book_big_genre_id, @big_genres, :id, :big_genre_name) %>
+          <%= f.collection_select(:book_big_genre_id, BookBigGenre.all, :id, :big_genre_name) %>
         </div>
       </div>
       <!--細かいジャンルは非同期化後に追加-->
