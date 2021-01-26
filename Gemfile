@@ -76,7 +76,7 @@ gem 'kaminari'
 # 多言語
 gem 'i18n_generators'
 # デプロイ準備
-# gem 'dotenv-rails'
-# group :production do
-#   gem 'mysql2'
-# end
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
