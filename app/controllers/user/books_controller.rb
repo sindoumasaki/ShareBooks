@@ -12,7 +12,8 @@ class User::BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @comment = Comment.new
-    @comments = @book.comments
+    @commnets = @book.commnets
+    # @comments = Comment.all.includes(:@book, :favorites)
   end
 
   def create
