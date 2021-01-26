@@ -14,7 +14,7 @@
               <%= attachment_image_tag user, :user_image, size: "50x50", fallback: "noimage-user.jpg" %>
             <% end %>
           </td>
-          <td class="col-xs-">
+          <td class="col-xs-6">
             <%= link_to user_user_path(user.id) do %>
               <p class="friend-nickname">
                 <%= user.nickname %>
