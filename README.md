@@ -27,6 +27,3 @@ https://docs.google.com/spreadsheets/d/1Cl_oC0omYS1pYqmxRwNeQSAteF7OXFICSP4xqhLS
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-今後、更新予定。
