@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_065806) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "nickname", default: "", null: false
-    t.text "user_introduction", default: "あなたはどんな人？", null: false
+    t.text "user_introduction", default: "", null: false
     t.integer "user_status", default: 0, null: false
     t.integer "user_genre", default: 0, null: false
     t.string "user_image_id"
