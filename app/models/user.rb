@@ -13,7 +13,7 @@ class User < ApplicationRecord
   # バリデーション===================================================
   validates :nickname,      presence: true,   uniqueness: true,   length: { in: 1..15 }
   validates :email,         presence: true,   uniqueness: true
-  validates :password,      presence: true,   length: { minimum: 6 }
+  validates :password,      length: { minimum: 6 }
 
   # フォロー・フォロワー機能=========================================
   # フォロー側
