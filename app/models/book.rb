@@ -17,6 +17,7 @@ class Book < ApplicationRecord
     book_favorites.where(user_id: user.id).exists?
   end
 
+# いいねランキングのメソッド
   def self.book_top3
     Book.find(BookFavorite.joins(:book).group(:book_id).order('count(book_id) DESC').limit(3).pluck(:book_id))
   end
@@ -24,4 +25,7 @@ class Book < ApplicationRecord
   def self.book_top10
     Book.find(BookFavorite.joins(:book).group(:book_id).order('count(book_id) DESC').limit(10).pluck(:book_id))
   end
+
+  # 本日の新規投稿を検索するメソッド
+  scope :new_books, -> { where(created_at: Time.zone.now.all_day)}
 end

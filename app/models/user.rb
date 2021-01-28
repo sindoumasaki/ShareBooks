@@ -64,4 +64,7 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
+
+  # 本日の新規ユーザーを検索するメソッド
+  scope :new_users, -> { where(created_at: Time.zone.now.all_day)}
 end

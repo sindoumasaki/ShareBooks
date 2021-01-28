@@ -9,17 +9,19 @@ class ApplicationController < ActionController::Base
   # devise関連===============================================
   # サインアップ後のリダイレクト先を各homeページに遷移
   def after_sign_up_path_for(resource)
-    if resource == Admin
+    case resource
+    when Admin
       admin_homes_home_path
-    else
+    when User
       user_homes_home_path
     end
   end
   # ログイン後のリダイレクト先を各homeページに遷移
   def after_sign_in_path_for(resource)
-    if resource == Admin
+    case resource
+    when Admin
       admin_homes_home_path
-    else
+    when User
       user_homes_home_path
     end
   end

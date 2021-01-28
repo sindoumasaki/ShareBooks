@@ -1,2 +1,20 @@
-<h1>Admin::Homes#home</h1>
-<p>Find me in app/views/admin/homes/home.html.erb</p>
+<div class="container">
+  <!--ユーザー関連-->
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <h3>ユーザー情報</h3>
+      <div class="row">
+        <h4>新規ユーザー数(<%= @new_users.count %>)</h4>
+      </div>
+    </div>
+  </div>
+  <!--投稿関連-->
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <h3>投稿情報</h3>
+      <div class="row">
+        <h4>新規投稿数(<%= @new_books.count %>)</h4>
+      </div>
+    </div>
+  </div>
+</div>
