@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable
 
   # アソシエーション=================================================
   has_many :books,              dependent: :destroy
@@ -12,8 +12,8 @@ class User < ApplicationRecord
 
   # バリデーション===================================================
   validates :nickname,      presence: true,   uniqueness: true,   length: { in: 1..15 }
-  validates :email,         presence: true,   uniqueness: true
-  validates :password,      length: { minimum: 6 }
+  # validates :email,         presence: true,   uniqueness: true
+  # validates :password,      presence: true,   confirmation: true,   length: { minimum: 6 }
 
   # フォロー・フォロワー機能=========================================
   # フォロー側

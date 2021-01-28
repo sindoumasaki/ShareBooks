@@ -29,12 +29,12 @@ class User::UsersController < ApplicationController
     if user.update(user_params)
       redirect_to my_page_user_user_url(user), notice: '本登録完了'
     else
-      redirect_to edit_user_user_url(user), alert: '登録できなかったよ'
+      redirect_to edit_user_user_url(user), alert: '登録できなかった'
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:user_image, :nickname, :email, :user_introduction, :user_status)
+    params.require(:user).permit(:user_image, :nickname, :user_introduction, :user_status)
   end
 end

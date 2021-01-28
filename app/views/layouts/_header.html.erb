@@ -61,7 +61,7 @@
 				<!--管理者がログインしている場合	-------------------------->
 				<% elsif admin_signed_in? %>
 					<li>
-						<%= link_to admin_users_path do %>
+						<%= link_to admin_users_index_path do %>
 							<p class="list-text fas fa-users">ユーザー一覧</p>
 						<% end %>
 					</li>
