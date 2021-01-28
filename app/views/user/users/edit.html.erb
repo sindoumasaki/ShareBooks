@@ -19,19 +19,19 @@
           <h5>ニックネーム</h5>
         </div>
         <div class="row mypage-right-line">
-          <%= f.text_field :nickname, class: "form-control", size: 30, autofocus: true, maxlength: 15 %>
+          <%= f.text_field :nickname, autocomplete: "nickname", class: "form-control", size: 30, autofocus: true, maxlength: 15 %>
         </div>
         <div class="row mypage-right-line">
           <h5>メールアドレス</h5>
         </div>
         <div class="row mypage-right-line">
-          <%= f.email_field :email, class: "form-control", size: 30 %>
+          <%= f.email_field :email, autocomplete: "email", class: "form-control", size: 30 %>
         </div>
         <div class="row mypage-right-line">
           <h5>パスワード</h5>
         </div>
         <div class="row mypage-right-line">
-          <%= f.text_field :password, class: "form-control", size: 30 %>
+          <%= f.text_field :password, class: "form-control", size: 30, placeholder: "6文字以上", autocomplete: "new-password" %>
           <% if @minimum_password_length %>
             <br />
             <em><%= @minimum_password_length %> characters minimum</em>
@@ -41,10 +41,10 @@
           <h5>パスワード（再確認）</h5>
         </div>
         <div class="row mypage-right-line">
-          <%= f.text_field :password_confirmation, class: "form-control", size: 30 %>
+          <%= f.text_field :password_confirmation, class: "form-control", size: 30, placeholder: "6文字以上", autocomplete: "new-password" %>
         </div>
         <div class="row mypage-right-line">
-          <%= f.hidden_field :current_password, class: "form-control", size: 30 %>
+          <%= f.hidden_field :current_password, class: "form-control", size: 30, placeholder: "6文字以上", autocomplete: "current-password" %>
         </div>
         <div class="row mypage-right-line">
           <h5>自己紹介</h5>
@@ -84,19 +84,19 @@
           <h5>ニックネーム</h5>
         </div>
         <div class="row mypage-right-line">
-          <%= f.text_field :nickname, class: "form-control", size: 30, maxlength: 15 %>
+          <%= f.text_field :nickname, autocomplete: "nickname", class: "form-control", size: 30, maxlength: 15 %>
         </div>
         <div class="row mypage-right-line">
           <h5>メールアドレス</h5>
         </div>
         <div class="row mypage-right-line">
-          <%= f.email_field :email, class: "form-control", size: 30 %>
+          <%= f.email_field :email, autocomplete: "email", class: "form-control", size: 30 %>
         </div>
         <div class="row mypage-right-line">
           <h5>新しいパスワード</h5>
         </div>
         <div class="row mypage-right-line">
-          <%= f.text_field :password, class: "form-control", size: 30 %>
+          <%= f.text_field :password, class: "form-control", size: 30, placeholder: "6文字以上", autocomplete: "new-password" %>
           <% if @minimum_password_length %>
             <br />
             <em><%= @minimum_password_length %> characters minimum</em>
@@ -106,13 +106,13 @@
           <h5>新しいパスワード（再確認）</h5>
         </div>
         <div class="row mypage-right-line">
-          <%= f.text_field :password_confirmation, class: "form-control", size: 30 %>
+          <%= f.text_field :password_confirmation, class: "form-control", size: 30, placeholder: "6文字以上", autocomplete: "new-password" %>
         </div>
         <div class="row mypage-right-line">
           <h5>古いパスワード</h5>
         </div>
         <div class="row mypage-right-line">
-          <%= f.text_field :current_password, class: "form-control", size: 30 %>
+          <%= f.text_field :current_password, class: "form-control", size: 30, placeholder: "6文字以上", autocomplete: "current-password" %>
         </div>
         <div class="row mypage-right-line">
           <h5>自己紹介</h5>
