@@ -20,14 +20,14 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when Admin
-      admin_homes_home_path
+      admin_homes_home_url
     when User
-      user_homes_home_path
+      user_homes_home_url
     end
   end
   # ログアウト 後のリダイレクト先を各homeページに遷移
   def after_sign_out_path_for(resource)
-    root_path
+    root_url
   end
 
   # ログインしていない時topページにリダイレクトさせる
