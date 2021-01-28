@@ -4,6 +4,7 @@
       <p>© 2021 進藤聖起.</p>
     </div>
   </div>
+  <% unless user_signed_in? %>
   <div class="row">
     <div class="col-xs-offset-11 col-xs-1">
       <%= link_to new_admin_session_path do %>
@@ -11,4 +12,5 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 </div>
