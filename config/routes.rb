@@ -47,12 +47,14 @@ Rails.application.routes.draw do
       resources :small_genres,  only: %i[create destroy]
     end
     resources :searches,        only: %i[index]
+    resources :users,           only: %i[show index] do
+      member do
+      get 'bad_index',    as: 'bad_index'
+      get 'confirm',      as: 'confirm'
+      get 'bye_bye',      as: 'bye_bye'
+      end
+    end
     get 'homes/home'
-    get 'users/show'
-    get 'users/index'
-    get 'users/bad_index'
-    get 'users/confirm'
-    get 'users/bye_bye'
     get 'books/show'
     get 'books/new_index'
   end
