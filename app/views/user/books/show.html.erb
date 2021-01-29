@@ -3,7 +3,7 @@
   <!--子要素にブロック要素がないとform-groupは高さ０になるため不採用、子要素にブロック要素がなくても高さが出るrowを採用-->
     <div class="col-xs-offset-1 col-xs-5 book-show-left">
       <div class="row">
-        <%= attachment_image_tag @book, :book_image, size: "400x300", class: "col-xs-offset-3 col-xs-9", fallback: "no_image.jpg"%>
+        <%= attachment_image_tag @book, :book_image, size: "400x300", class: "col-xs-offset-3 col-xs-9", fallback: "noimage-book.jpg" %>
       </div>
       <div class="row">
         <% if @book.user_id == current_user.id %>
