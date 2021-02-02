@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_08_065806) do
+ActiveRecord::Schema.define(version: 2021_02_02_051341) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -73,6 +73,13 @@ ActiveRecord::Schema.define(version: 2021_01_08_065806) do
   create_table "relationships", force: :cascade do |t|
     t.integer "following_id", null: false
     t.integer "follower_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

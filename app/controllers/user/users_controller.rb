@@ -8,6 +8,7 @@ class User::UsersController < ApplicationController
   def my_page
     @user = User.find(params[:id])
     @books = @user.books
+    @tags = @user.tags.name
   end
 
   def follows
@@ -27,6 +28,10 @@ class User::UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     if user.update(user_params)
+      tags = Vision.get_image_data(user.user_image)
+      tags.each do |tag|
+        user.tags.create(name: tag, user_id: user.id)
+      end
       redirect_to my_page_user_user_url(user), notice: '本登録完了'
     else
       redirect_to edit_user_user_url(user), alert: '登録できなかった'

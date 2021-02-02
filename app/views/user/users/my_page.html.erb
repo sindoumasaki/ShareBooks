@@ -7,6 +7,13 @@
           <%= attachment_image_tag @user, :user_image, size: "250x250", format: 'jpg', fallback: "noimage-user.jpg" %>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+          <% @user.tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
+        </div>
+      </div>
       <div class="row mypage-left-link">
         <div class="col-xs-offset-3 col-xs-3">
           <%= link_to follows_user_user_path do %>

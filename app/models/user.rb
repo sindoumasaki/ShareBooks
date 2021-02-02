@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable
 
   # アソシエーション=================================================
+  has_many :tags,               dependent: :destroy
   has_many :books,              dependent: :destroy
   has_many :comments,           dependent: :destroy
   has_many :book_favorites,     dependent: :destroy
