@@ -34,7 +34,7 @@ class User::UsersController < ApplicationController
       end
       redirect_to my_page_user_user_url(user), notice: '本登録完了'
     else
-      redirect_to edit_user_user_url(user), alert: '登録できなかった'
+      redirect_to edit_user_user_url(user), alert: '登録できなかったよ'
     end
   end
 
