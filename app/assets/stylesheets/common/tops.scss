@@ -3,11 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // メインビジュアルの記述
+.skippr-container {
+  height: 500px;
+}
+
 .mv-box {
   background-image: image-url("ShareBooks.jpg");
   background-size: cover;
   display: flex;
-  justify-content: left;
+  justify-content: center;
+  height: 800px;
 }
 
 .mv-text-box {

@@ -4,13 +4,14 @@
     <title>ShareBooks</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheets" href="app/assets/stylesheets/skippr.css" />
     <script src="https://kit.fontawesome.com/5edaebbe20.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render "layouts/header" %>
+    <%#= render "layouts/header" %>
     <% if notice %>
       <!--上手くいった時に出すメッセージ-->
       <div class="alert alert-success alert-dismissible" role="alert">

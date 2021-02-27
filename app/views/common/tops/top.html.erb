@@ -1,11 +1,30 @@
-<div class="container">
-  <div class="container-fluid">
+<!--<div class="container">-->
+  <div class="container-fluid skippr-container">
     <!--メインビジュアル-->
-    <div class="row mv-box">
-      <div class="mv-text-box">
-        <h4 class="mv-text">
-          あなたのオススメの本を紹介・発見する</br>
-          手助けになるサイトです。
+    <div class="mv">
+      <div class="mv-box">
+        <div class="mv-text-box">
+          <h4 class="mv-text">
+            1あなたのオススメの本を紹介・発見する</br>
+            手助けになる書籍のレビューサイトです。
+          </h4>
+        </div>
+      </div>
+      <div class="mv-box">
+        <div class="mv-text-box">
+          <h4 class="mv-text">
+            2あなたのオススメの本を紹介・発見する</br>
+            手助けになる書籍のレビューサイトです。
+          </h4>
+        </div>
+      </div>
+      <div class="mv-box">
+        <div class="mv-text-box">
+          <h4 class="mv-text">
+            3あなたのオススメの本を紹介・発見する</br>
+            手助けになる書籍のレビューサイトです。
+          </h4>
+        </div>
       </div>
     </div>
   </div>
@@ -53,6 +72,7 @@
           <div class="row box-line">
             <div class="top-book-image">
               <%= link_to user_book_path(book.id), class: "title-text" do %>
+              <!-- TODO: fix 404 error  -->
                 <%= attachment_image_tag book, :book_image, size: "300x240", fallback: "noimage-book.jpg" %>
               <% end %>
             </div>
@@ -75,4 +95,4 @@
   <!--<%#= paginate @books %>-->
     </div>
   </div>
-</div>
+<!--</div>-->
