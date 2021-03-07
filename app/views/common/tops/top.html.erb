@@ -1,8 +1,8 @@
-<!--<div class="container">-->
-  <div class="container-fluid skippr-container">
-    <!--メインビジュアル-->
+<div class="container-fluid">
+<!--メインビジュアル-->
+  <div class="skippr-container">
     <div class="mv">
-      <div class="mv-box">
+      <div class="mv-box-1">
         <div class="mv-text-box">
           <h4 class="mv-text">
             1あなたのオススメの本を紹介・発見する</br>
@@ -10,7 +10,7 @@
           </h4>
         </div>
       </div>
-      <div class="mv-box">
+      <div class="mv-box-2">
         <div class="mv-text-box">
           <h4 class="mv-text">
             2あなたのオススメの本を紹介・発見する</br>
@@ -18,7 +18,7 @@
           </h4>
         </div>
       </div>
-      <div class="mv-box">
+      <div class="mv-box-3">
         <div class="mv-text-box">
           <h4 class="mv-text">
             3あなたのオススメの本を紹介・発見する</br>
@@ -28,8 +28,10 @@
       </div>
     </div>
   </div>
-  <!--ログインボタン-->
-  <% unless user_signed_in? %>
+</div>
+<!--ログインボタン-->
+<div class="container">
+<% unless user_signed_in? %>
   <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
       <%= link_to users_guest_sign_in_path, method: :post do %>
@@ -47,7 +49,8 @@
       <% end %>
     </div>
   </div>
-  <% end %>
+<% end %>
+</div>
 
   <!--投稿いいね上位top3-->
   <div class="row">
@@ -72,7 +75,6 @@
           <div class="row box-line">
             <div class="top-book-image">
               <%= link_to user_book_path(book.id), class: "title-text" do %>
-              <!-- TODO: fix 404 error  -->
                 <%= attachment_image_tag book, :book_image, size: "300x240", fallback: "noimage-book.jpg" %>
               <% end %>
             </div>

@@ -21,7 +21,7 @@
       <div class="row">
         <%= f.label :ジャンル, class: "col-xs-4 control-label" %>
         <div class="col-xs-6">
-          <%= f.collection_select(:book_big_genre_id, BookBigGenre.all, :id, :big_genre_name) %>
+          <%= f.collection_select(:book_big_genre_id, @book_big_genres, :id, :big_genre_name) %>
         </div>
       </div>
       <!--細かいジャンルは非同期化後に追加-->

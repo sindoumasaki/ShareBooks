@@ -3,6 +3,7 @@ class User::BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @book_big_genres = BookBigGenre.all
   end
 
   def index
