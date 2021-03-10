@@ -103,3 +103,12 @@
 .signup-line {
   padding: 15px 0;
 }
+// 画面右下固定の書籍投稿ボタン
+#new_book {
+  position: fixed;
+  right: 30px;
+  bottom: 180px;
+}
+#new_book_botton {
+  font-size: 40px;
+}

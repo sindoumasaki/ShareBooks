@@ -11,7 +11,9 @@
   </head>
 
   <body>
+    <!--header=======================================================-->
     <%= render "layouts/header" %>
+    <!--=============================================================-->
     <% if notice %>
       <!--上手くいった時に出すメッセージ-->
       <div class="alert alert-success alert-dismissible" role="alert">
@@ -27,7 +29,18 @@
     <% end %>
     <div class="container-fluid body-1">
       <%= yield %>
+      <!--画面右下固定の書籍投稿ボタン============================-->
+      <% if user_signed_in? %>
+      <span id="new_book">
+        <%= link_to new_user_book_path do %>
+          <i id="new_book_botton" class="fas fa-book-medical "></i>
+        <% end %>
+      </span>
+      <% end %>
+      <!--=====================================================-->
     </div>
+    <!--footer=============================================================-->
     <%= render "layouts/footer" %>
+    <!--===================================================================-->
   </body>
 </html>
